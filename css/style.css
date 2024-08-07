@@ -24,12 +24,14 @@ header{
     justify-content: space-between;
     align-items: flex-end;
     background-color: #b43f3f;
+    background-image: url("../imgs/Contact.png");
     margin: 0%;
 }
 
 header img{
     width: 11em;
     padding: 0.5em;
+    object-fit: cover;
 }
 
 nav ul{
@@ -54,9 +56,6 @@ nav a{
     
 }
 
-header img{
-    object-fit: cover;
-}
 
 /**grid for everthing*/
 #killmepart2{
@@ -82,6 +81,10 @@ section{
 
 footer{
     background-color: #173b45;
+    background-image: url(../imgs/palet\ of\ death.png);
+    background-size:contain;
+    text-align: center;
+    color: #f8eded;
 }
 
 
@@ -109,7 +112,8 @@ nav li{
 
 p,
 option,
-#print{
+#print,
+.recipe_info{
     font-family: "ara_hamah_homs";
 }
 
@@ -132,12 +136,17 @@ option,
 
 }
 .recipe_info{
-    height: 15em;
+    height: 228.400px;
+    width: 291.733px;
     display: flex;
     flex: 1;
     flex-direction: column;
     background-color: #b5c3b8;
-    width: fit-content;
+}
+
+.recipe_info h3{
+    background-color:#f8eded;
+    margin-bottom: 0%;
 }
 
 .ex{
@@ -156,7 +165,8 @@ option,
 .ex,
 button,
 select,
-option{
+option,
+.recipe_info h3{
     border-radius: 20px;
     padding: 1em;
 }
@@ -176,3 +186,32 @@ option{
 }
 
 
+@media print{
+    body{
+        visibility: hidden;
+    }
+    #printedPart{
+        visibility: visible;
+        overflow:visible;
+        position:absolute !important;
+        top:0;
+        left:0
+    }
+    .add{
+        visibility: hidden;
+    }
+
+    h1,
+    h2{
+    font-family: "ara_hamah_homs";
+    color: #ff8027;
+    height: 30px;
+    }
+
+    .recipe{
+        position:absolute;
+        overflow:visible;
+        top:0;
+        left:0;
+    }
+}
