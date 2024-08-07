@@ -10,7 +10,7 @@
 
 body{
     margin: 0%;
-
+    background-color: #f8eded;
 }
 
 section{
@@ -166,7 +166,9 @@ option,
 button,
 select,
 option,
-.recipe_info h3{
+.recipe_info h3,
+.water,
+#massege{
     border-radius: 20px;
     padding: 1em;
 }
@@ -214,4 +216,22 @@ option{
         top:0;
         left:0;
     }
+}
+
+.water{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#b5c3b8;
+    width: fit-content;
+}
+
+#massege{
+    background-color: #f8f8f8;
+    text-align: center;
+    font-size: larger;
+    color: #173b45;
 }
