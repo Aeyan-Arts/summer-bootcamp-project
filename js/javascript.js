@@ -156,9 +156,6 @@ function getRandom(exclude){
     return num;
 };
 
-function appendToRecipe(x){
-
-}
 
 function completeForm(mealplace) {
     let breakfast = document.getElementById(mealplace);
@@ -212,7 +209,57 @@ selectBreakfast.addEventListener("change", function() {
     console.log(selectedMeal)
     recipeOBJ = getRecipeFromValue(selectedMeal);
     console.log(recipeOBJ)
-
     editRecipe = document.getElementById("recipe for breakfast")
-    editRecipe.text
+    editRecipe.innerHTML=`<h3>${selectedMeal}</h3><ul><li><b>Carbs:<b>${recipeOBJ.carbs}</li><li><b>Protein:<b>${recipeOBJ.protein}</li><li><b>Fats:<b>${recipeOBJ.fats}</li></ul>` 
 })
+
+let selectlunch = document.getElementById('choose recipe lunch');
+selectlunch.addEventListener("change", function() {
+    const selectedMeal2 = selectlunch.value;
+    console.log(selectedMeal2)
+    recipeOBJ = getRecipeFromValue(selectedMeal2);
+    console.log(recipeOBJ)
+    editRecipe = document.getElementById("recipe for lunch")
+    editRecipe.innerHTML=`<h3>${selectedMeal2}</h3><ul><li><b>Carbs:<b>${recipeOBJ.carbs}</li><li><b>Protein:<b>${recipeOBJ.protein}</li><li><b>Fats:<b>${recipeOBJ.fats}</li></ul>` 
+})
+
+let selectdinner = document.getElementById('choose recipe dinner');
+selectdinner.addEventListener("change", function() {
+    const selectedMeal3 = selectdinner.value;
+    console.log(selectedMeal3)
+    recipeOBJ = getRecipeFromValue(selectedMeal3);
+    console.log(recipeOBJ)
+    editRecipe = document.getElementById("recipe for dinner")
+    editRecipe.innerHTML=`<h3>${selectedMeal3}</h3><ul><li><b>Carbs:<b>${recipeOBJ.carbs}</li><li><b>Protein:<b>${recipeOBJ.protein}</li><li><b>Fats:<b>${recipeOBJ.fats}</li></ul>` 
+})
+
+/**prints and gives you a pdf
+document.addEventListener("DOMContentLoaded", ()=>{
+    let printButton = document.getElementById("print");
+    let printedPart = document.getElementById("printedPart")
+
+    printButton.addEventListener("click", event =>{
+        event.preventDefault();
+        printLink.style.display = "none";
+        window.print()
+    },false)
+
+printedPart.addEventListener("click", event => {
+    printButton.style.display = "flex";
+}, false);
+
+}, false);*/
+
+document.addEventListener("DOMContentLoaded", () => {
+    let printLink = document.getElementById("print");
+    let container = document.getElementById("printedPart");
+
+    printLink.addEventListener("click", event => {
+        event.preventDefault();
+        window.print();
+    }, false);
+
+    container.addEventListener("click", event => {
+    }, false);
+
+}, false);
