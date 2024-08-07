@@ -85,36 +85,36 @@ function getRecipeFromValue(a){
                 fullMealAlchamist={
                 name:"Paleo Pumpkin Pie",
                 recipeIngredients:"pain pain pain",
-                carbs: '5.22g',
-                fats:'1.29g',
-                protein:'3.20g'
+                carbs: '302.59g',
+                fats:'96.76g',
+                protein:' 30.91g'
             };
             break;
         case "Strawberry Guacamole":
             fullMealAlchamist={
                 name:"Strawberry Guacamole",
                 recipeIngredients:"pain pain pain",
-                carbs: '5.22g',
-                fats:'1.29g',
-                protein:'3.20g'
+                carbs: '9.62g',
+                fats:'59.89g',
+                protein:'9.62g'
             };
             break;
         case "Paleo Blueberry Muffins":
             fullMealAlchamist={
                 name:"Paleo Blueberry Muffins",
                 recipeIngredients:"pain pain pain",
-                carbs: '5.22g',
-                fats:'1.29g',
-                protein:'3.20g'
+                carbs: '156.8g',
+                fats:'770.8g',
+                protein:'251.17g'
             };
             break;
         case "Paleo Shrimp-Stuffed Mushrooms":
             fullMealAlchamist={
                 name:"Paleo Shrimp-Stuffed Mushrooms",
                 recipeIngredients:"pain pain pain",
-                carbs: '5.22g',
-                fats:'1.29g',
-                protein:'3.20g'
+                carbs: '68.62g',
+                fats:'34.15g',
+                protein:'42.44g'
             };
             break;
         case "Baked Banana Chip Encrusted French Toast":
@@ -122,7 +122,7 @@ function getRecipeFromValue(a){
                 name:"Baked Banana Chip Encrusted French Toast",
                 recipeIngredients:"pain pain pain",
                 carbs: '5.22g',
-                fats:'1.29g',
+                fats:'5.29g',
                 protein:'3.20g'
             };
             break;
@@ -210,7 +210,7 @@ selectBreakfast.addEventListener("change", function() {
     recipeOBJ = getRecipeFromValue(selectedMeal);
     console.log(recipeOBJ)
     editRecipe = document.getElementById("recipe for breakfast")
-    editRecipe.innerHTML=`<h3>${selectedMeal}</h3><ul><li><b>Carbs:<b>${recipeOBJ.carbs}</li><li><b>Protein:<b>${recipeOBJ.protein}</li><li><b>Fats:<b>${recipeOBJ.fats}</li></ul>` 
+    editRecipe.innerHTML=`<h3>${selectedMeal}</h3><ul><li><b>Carbs:</b>${recipeOBJ.carbs}</li><li><b>Protein:</b>${recipeOBJ.protein}</li><li><b>Fats:</b>${recipeOBJ.fats}</li></ul>` 
 })
 
 let selectlunch = document.getElementById('choose recipe lunch');
@@ -220,7 +220,7 @@ selectlunch.addEventListener("change", function() {
     recipeOBJ = getRecipeFromValue(selectedMeal2);
     console.log(recipeOBJ)
     editRecipe = document.getElementById("recipe for lunch")
-    editRecipe.innerHTML=`<h3>${selectedMeal2}</h3><ul><li><b>Carbs:<b>${recipeOBJ.carbs}</li><li><b>Protein:<b>${recipeOBJ.protein}</li><li><b>Fats:<b>${recipeOBJ.fats}</li></ul>` 
+    editRecipe.innerHTML=`<h3>${selectedMeal2}</h3><ul><li><b>Carbs:</b>${recipeOBJ.carbs}</li><li><b>Protein:</b>${recipeOBJ.protein}</li><li><b>Fats:</b>${recipeOBJ.fats}</li></ul>` 
 })
 
 let selectdinner = document.getElementById('choose recipe dinner');
@@ -230,25 +230,8 @@ selectdinner.addEventListener("change", function() {
     recipeOBJ = getRecipeFromValue(selectedMeal3);
     console.log(recipeOBJ)
     editRecipe = document.getElementById("recipe for dinner")
-    editRecipe.innerHTML=`<h3>${selectedMeal3}</h3><ul><li><b>Carbs:<b>${recipeOBJ.carbs}</li><li><b>Protein:<b>${recipeOBJ.protein}</li><li><b>Fats:<b>${recipeOBJ.fats}</li></ul>` 
+    editRecipe.innerHTML=`<h3>${selectedMeal3}</h3><ul><li><b>Carbs:</b>${recipeOBJ.carbs}</li><li><b>Protein:</b>${recipeOBJ.protein}</li><li><b>Fats:</b>${recipeOBJ.fats}</li></ul>` 
 })
-
-/**prints and gives you a pdf
-document.addEventListener("DOMContentLoaded", ()=>{
-    let printButton = document.getElementById("print");
-    let printedPart = document.getElementById("printedPart")
-
-    printButton.addEventListener("click", event =>{
-        event.preventDefault();
-        printLink.style.display = "none";
-        window.print()
-    },false)
-
-printedPart.addEventListener("click", event => {
-    printButton.style.display = "flex";
-}, false);
-
-}, false);*/
 
 document.addEventListener("DOMContentLoaded", () => {
     let printLink = document.getElementById("print");
@@ -263,3 +246,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }, false);
 
 }, false);
+
+function updateStreak() {
+    const lastCompletionDate = localStorage.getItem('lastCompletionDate');
+    const currentDate = new Date().toDateString();
+
+    let streak = parseInt(localStorage.getItem('streak') || '0', 10);
+
+    if (lastCompletionDate === currentDate) {
+        // Do nothing if today is already marked
+        return;
+    }
+
+    if (lastCompletionDate) {
+        const lastDate = new Date(lastCompletionDate);
+        const diffDays = Math.floor((new Date() - lastDate) / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 1) {
+            // Continue streak
+            streak += 1;
+        } else if (diffDays > 1) {
+            // Reset streak
+            streak = 1;
+        }
+    } else {
+        // First completion
+        streak = 1;
+    }
+
+    localStorage.setItem('lastCompletionDate', currentDate);
+    localStorage.setItem('streak', streak);
+
+    displayStreak(streak);
+}
+
+// Function to display streak
+function displayStreak(streak) {
+    const streakElement = document.getElementById('streak');
+    streakElement.innerText = `Current Streak: ${streak}`;
+    if (streak > 0) {
+        streakElement.classList.add('completed');
+    } else {
+        streakElement.classList.remove('completed');
+    }
+}
+
+// Event listener for the button
+document.getElementById('recordStreak').addEventListener('click', updateStreak);
+
+// Initial display of streak
+displayStreak(parseInt(localStorage.getItem('streak') || '0', 10));
