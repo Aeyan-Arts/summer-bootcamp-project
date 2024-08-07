@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plate planner </title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imgs/Plate Planner-modified.png" type="img/icon type">
 </head>
 <body>
     <div id="killme">
@@ -13,8 +14,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="">WATER REMINDER</a></li>
-                <li><a href="">ABOUT US</a></li>
+                <li><a href="water reminder.html">WATER REMINDER</a></li>
             </ul>
         </nav>
     </header>
@@ -23,23 +23,15 @@
         <div class="meal">
         <h1>BREAKFAST</h1>
             <div class="recipess">
-                <div class="ex">
-                    dump text
-                </div>
-                <div class="ex">
-                    dump text
-                </div>
-                <div class="ex">
-                    dump text
-                </div>
-                <div class="ex">
-                    dump text
+                <div class="choose recipe">
+                    <select size="3" id="choose recipe breakfast" class="selector">
+                    </select>
                 </div>
                 <!--abbind childd here-->
             </div>
             <button class="add">add snack</button>
         </div>
-        <div class="recipe">
+        <div class="recipe" id="recipe for breakfast">
             <h2>RECIPE</h2>
             <div class="recipe_info">
                 <P>please select a meal</P>
@@ -47,9 +39,29 @@
         </div>
 
         <div class="meal">
+            <h1>LUNCH</h1>
+                <div class="recipess" >
+                    <!--abbind child here-->
+                    <select size="3" id="choose recipe lunch" class="selector">
+                    </select>
+                </div>
+                <button class="add">add snack</button>
+        </div>
+        <div class="recipe">
+            <h2>RECIPE</h2>
+            <div class="recipe_info">
+                <P>please select a meal</P>
+            </div>
+        </div>
+    
+
+
+        <div class="meal">
             <h1>DINNER</h1>
             <div class="recipess">
                     <!--abbind child here-->
+                    <select size="3" id="choose recipe dinner" class="selector">
+                    </select>
             </div>
             <button class="add">add snack</button>
         </div>
@@ -60,28 +72,17 @@
             </div>
         </div>
         
-            <div class="meal">
-                <h1>LUNCH</h1>
-                    <div class="recipess">
-                        <!--abbind child here-->
-                    </div>
-                    <button class="add">add snack</button>
-            </div>
-            <div class="recipe">
-                <h2>RECIPE</h2>
-                <div class="recipe_info">
-                    <P>please select a meal</P>
-                </div>
-            </div>
-        </div>
-            <button id="print">PRINT</button>
+    </div>
+            
     </section>
-    
+    <div id="button">    <button id="print">P R I N T</button></div>
+
     <section id="daily_streak">
         
         <div id="flexx">
             <h1>YOUR STREAK</h1>
-
+            <button id="recordStreak">Record Streak</button>
+            <div id="streak">Streak: 0 days</div>
         </div>
     </section>
     <footer>
@@ -90,7 +91,7 @@
         dummy info
     </footer>
 </div>
-    <script src="js/script.js">
+    <script src="js/javascript.js">
     </script>
 </body>
 </html>
