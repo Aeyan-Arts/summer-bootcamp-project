@@ -66,7 +66,7 @@ nav a{
 }
 #killme{
     display: grid;
-    grid-template-rows: 7em 1fr auto auto 15em;
+    grid-template-rows: 7em auto auto auto 15em;
 }
 .griduwu{
     /**just kill mee*/
@@ -126,8 +126,15 @@ nav li{
 p,
 option,
 #print,
-.recipe_info{
+.recipe_info,
+#recordStreak,
+#streak{
     font-family: "ara_hamah_homs";
+}
+
+#recordStreak,
+#streak{
+    font-size: large;
 }
 
 #button{
@@ -149,6 +156,7 @@ option,
     display: inline-block;
 
 }
+
 .recipe_info{
     height: 228.400px;
     width: 291.733px;
@@ -162,6 +170,7 @@ option,
 .recipe_info h3{
     background-color:#f8f8f8;
     margin-bottom: 0%;
+    font-size: 24px;
 }
 
 .recipe_info p{
@@ -256,4 +265,43 @@ option{
         /**just kill mee*/
         grid-gap: 0em;
 }
+}
+
+@media (min-width:1000px) {
+    select{
+        display: flex;
+        flex-direction: column;
+        background-color: #f8f8f8;
+        width: fit-content;
+        flex: 1;
+        align-items: stretch;
+        border: 1px solid #ff8027;
+        margin: 1em;
+    }
+
+    select{
+        height: 300.400px;
+        width: 720px
+    }
+    
+    option{
+        font-size: 20px;
+    }
+    .recipe_info{
+        height: 300.400px;
+        width: 720px;
+        flex-direction: column;
+        background-color: #b5c3b8;
+        border-left: 3px solid #ff8027;
+    }
+
+    .recipe_info p{
+        margin: auto;
+        font-size: larger;
+    }
+
+    .recipe_info li{
+        margin: auto;
+        font-size: 20px;
+    }
 }
